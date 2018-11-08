@@ -2,10 +2,10 @@
 
     <div v-if="$emit('isSessionActive')">
 
-        {{session}}
-<!--
-        <div v-if="">
-                <h1>IF</h1>
+        <span>Bonjour {{session.user.firstname}}</span>
+        <div v-if="session.user.status == 'salarié'">
+            <h1>IF</h1>
+
 
         </div>
         <div v-else-if="this.session.user.mail == 'LOL' ">
@@ -14,7 +14,6 @@
         <div v-else>
                 <h1> ELSE</h1>
         </div>
-
     </div>
     <div v-else>
         <form>
@@ -26,12 +25,13 @@
           </div>
         </form>
     </div>
-	-->
-    </div>
 
 </template>
 
 <script>
+
+
+
 export default {
   components: {},
   data() {
@@ -45,3 +45,4 @@ export default {
   }
 };
 </script>
+
