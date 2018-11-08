@@ -1,62 +1,40 @@
 <template>
   <div class="container-fluid" id="app">
     
-    <NavBar v-on:sessionIsActive="sessionIsActive"/>
+    <div v-if="session.isActive" >
+        <NavBarOnline v-on:logout="logout" v-bind:session='session'/>
+    </div>
+    <div v-else>
+        <NavBarOffline v-on:login="login" v-bind:session='session'/>
+    </div>
+    
+    <div class="row mt-3" v-if="session.isActive" >
+       
+        <div style="background-color:light-gray" class="col-md-2 border">
+           <SideBar v-bind:session='session'></SideBar>
+        </div>
 
-    <div class="row mt-3">      
+        <div class="col-md-10">
+            <planning v-bind:session='session' />
+        </div>
 
-      <div class="col-md-2">
+    </div>
+    <div class="row mt-3" v-else>
+        <div class="col-md-12">
+        </div>
+    </div>
+    
 
-        <SideBar v-bind:session='session'></SideBar>
-
-      </div>
-
-      <div class="col-md-10">
-
-      <table class="table table-stripped">
-        <thead>
-          <tr>
-            <td>Lundi</td>
-            <td>Mardi</td>
-            <td>Mercredi</td>
-            <td>Jeudi</td>
-            <td>Vendredi</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="p-2 border-left border-success">
-                <p style="text-align:left">9h00</p> 
-                <pre class="border mb-2 mt-2" style="background-color:orange; height:20%">12h midi 13h</pre> 
-                <p style="text-align:left">17h00</p>
-              </div>
-
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      
-      </table>
-      
-
-      
-
-      </div>
-      <span>date :</span>
-
-    </div> 
     
   </div>
 </template>
 
 <script>
 
-import NavBar from './components/NavBar.vue'
+import NavBarOnline from './components/NavBarOnline.vue'
+import NavBarOffline from './components/NavBarOffline.vue'
 import SideBar from './components/SideBar.vue'
+import Planning from './components/Planning.vue'
 
 const users = [
   {
@@ -108,40 +86,49 @@ const users = [
 
 export default {
   components: {
-    NavBar, SideBar
+    NavBarOnline, NavBarOffline, SideBar, Planning
   },
   name: 'app',
   data () {
     return {
       session : {
-        user :  {
-        name : "jeandot",
-        firstname : "teofilo",
-        password : "bloup",
-        mail : "teofilo.jeandot@ynov.com",
-        address : "Nantes",
-        birthDate : "1996/02/23",
-        phone : "06 06 06 06 06",
-        contract : {
-          beginning : "2018/09/01",
-          end : "2018/12/31",
-          vacancyLeft : "23"
-        },
-        status : "salarié"
-        },
-  
+        isActive: false
       },
     }
   },
   methods: {
     sessionIsActive: function(){
-        if (this.session != null){
+        if (this.session.isActive){
           console.log("true")
           return true
         }
         console.log("false")
-        return false
-        
+        return false        
+    },
+    login:function(){
+          this.session = {
+            isActive: true,                
+            user :  {
+              name : "jeandot",
+              firstname : "teofilo",
+              password : "bloup",
+              mail : "teofilo.jeandot@ynov.com",
+              address : "Nantes",
+              birthDate : "1996/02/23",
+              phone : "06 06 06 06 06",
+              contract : {
+                beginning : "2018/09/01",
+                end : "2018/12/31",
+                vacancyLeft : "23"
+              },
+              status : "salarié"
+            }
+      }
+    },
+    logout:function(){
+        this.session = {
+            isActive: false
+        }
     }
   }
 }
@@ -149,19 +136,21 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;}
+  color: #2c3e50;
+}
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
 ul {
   list-style-type: none;
-  
+
   padding: 0;
 }
 
