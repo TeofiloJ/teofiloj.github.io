@@ -6,12 +6,10 @@
                 <span>Lundi</span>                  
                 <div v-for='event in planning'>
                     <div v-if="event.dateEventBegin < selectedDateBegin">
-                        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <pre class="border mb-2 mt-2" style="background-color:white; height:20%">{{event.name}}</pre>
-                        </a>
+                          <pre v-b-modal.modal-center="'myModal' + event.id" class="border mb-2 mt-2" style="background-color:white; height:20%">{{event.name}}</pre>
+                            <b-modal v-bind:id="'myModal' + event.id">
 
-
-                            
+                            </b-modal>                          
                     </div>
                 </div> 
             </div>
@@ -29,30 +27,35 @@
 <script>
 const planning = [
   {
+    id:0,
     name: "rendez vous médecin",
     color: "blue",
     dateEventBegin: "15",
     dateEventEnd: ""
   },
   {
+    id:1,
     name: "mise en prod",
     color: "blue",
     dateEventBegin: "20",
     dateEventEnd: ""
   },
   {
+    id:2,
     name: "réunion fin de projet",
     color: "blue",
     dateEventBegin: "15",
     dateEventEnd: ""
   },
   {
+    id:3,
     name: "montage vidéo",
     color: "blue",
     dateEventBegin: "29",
     dateEventEnd: ""
   },
   {
+    id:4,
     name: "pause café",
     color: "blue",
     dateEventBegin: "15",
