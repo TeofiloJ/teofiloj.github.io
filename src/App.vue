@@ -7,6 +7,7 @@
     <div v-else>
         <NavBarOffline v-on:login="login" v-bind:session='session'/>
     </div>
+    <Alerts v-bind:alert='alert' />
     
     <div class="row mt-3" v-if="session.isActive" >
        
@@ -35,6 +36,7 @@ import NavBarOnline from './components/NavBarOnline.vue'
 import NavBarOffline from './components/NavBarOffline.vue'
 import SideBar from './components/SideBar.vue'
 import Planning from './components/Planning.vue'
+import Alerts from './components/Alerts.vue'
 
 const users = [
   {
@@ -86,11 +88,13 @@ const users = [
 
 export default {
   components: {
-    NavBarOnline, NavBarOffline, SideBar, Planning
+    NavBarOnline, NavBarOffline, SideBar, Planning, Alerts
   },
   name: 'app',
   data () {
     return {
+      alert : "",
+      users: users,
       session : {
         isActive: false
       },
@@ -105,25 +109,29 @@ export default {
         console.log("false")
         return false        
     },
-    login:function(){
-          this.session = {
-            isActive: true,                
-            user :  {
-              name : "jeandot",
-              firstname : "teofilo",
-              password : "bloup",
-              mail : "teofilo.jeandot@ynov.com",
-              address : "Nantes",
-              birthDate : "1996/02/23",
-              phone : "06 06 06 06 06",
-              contract : {
-                beginning : "2018/09/01",
-                end : "2018/12/31",
-                vacancyLeft : "23"
-              },
-              status : "salarié"
-            }
+    login:function(formEmail, formPassword){
+      console.log("login")
+      var found = false
+      var i = 0
+      while(i < users.length && !found){
+          console.log("fE :" + formEmail + " fP : " + formPassword)
+          console.log("bE :" + users[i].mail + " bP : " + users[i].password)
+          if(users[i].mail == formEmail && users[i].password == formPassword){
+            
+            found = true
+          }else{
+            i++
+          }        
       }
+      if (found){
+        this.session = {
+            isActive: true,                
+            user :  users[i]
+        }
+      }else{
+        alert = "Bad email or password"
+      }
+          
     },
     logout:function(){
         this.session = {

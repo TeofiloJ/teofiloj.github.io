@@ -7,8 +7,14 @@
                 <div v-for='event in planning'>
                     <div v-if="event.dateEventBegin < selectedDateBegin">
                           <pre v-b-modal.modal-center="'myModal' + event.id" class="border mb-2 mt-2" style="background-color:white; height:20%">{{event.name}}</pre>
-                            <b-modal v-bind:id="'myModal' + event.id">
-
+                            <b-modal v-bind:title="event.name" v-bind:id="'myModal' + event.id">
+                              <div>
+                                <p>Date début : {{event.dateEventBegin}}</p>                                
+                              </div>
+                              <div>
+                                <p>Date fin : {{event.dateEventEnd}}</p>
+                              </div>
+                              <b-btn on:click="PlanningServices.updateEvent(event)">boutton</b-btn>
                             </b-modal>                          
                     </div>
                 </div> 
@@ -25,6 +31,9 @@
 </template>
 
 <script>
+
+import PlanningServices from "../services/PlanningServices.js"
+
 const planning = [
   {
     id:0,
