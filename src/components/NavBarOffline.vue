@@ -7,7 +7,6 @@
             </a>
             <ul>
                 <li>Aide</li>
-                <li><button v-on:click="$emit('login')" class="btn btn-success">Connexion</button></li>
                 <li><b-btn v-b-modal.modal-center.login class="btn-success">Login</b-btn></li>
             </ul>
         </nav>
@@ -28,8 +27,7 @@ export default {
   data() {
     return {
         formEmail: "teofilo.jeandot@ynov.com",
-        formPassword: "bloup",
-        showModal: false
+        formPassword: "bloup"
     };
   },
   methods: {

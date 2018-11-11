@@ -1,22 +1,36 @@
 <template>
   <div class="container-fluid" id="app">
     
-    <div v-if="session.isActive" >
-        <NavBarOnline v-on:logout="logout" v-bind:session='session'/>
+    <!-- Navbar -->
+
+    <div v-if="isAuth()" >
+        <NavBarOnline v-on:logout="logout" :session='session'/>
     </div>
     <div v-else>
-        <NavBarOffline v-on:login="login" v-bind:session='session'/>
+        <NavBarOffline v-on:login="login" :session='session'/>
     </div>
-    <Alerts v-bind:alert='alert' />
-    
-    <div class="row mt-3" v-if="session.isActive" >
-       
-        <div style="background-color:light-gray" class="col-md-2 border">
-           <SideBar v-bind:session='session'></SideBar>
-        </div>
 
+    <!-- Alert -->
+
+    <Alerts :alert='alert' />
+    
+    <!-- Main Page -->
+
+    <div class="row mt-3" v-if="isAuth()" >
+       
+        <!-- Left Sidebar -->
+        <div style="background-color:light-gray" class="col-md-2 border">
+           <SideBar :session="session" :toggleMonthView="toggleMonthView" v-on:togglePlanningView="togglePlanningView"></SideBar>
+        </div>
+        <!-- Center -->
         <div class="col-md-10">
-            <planning v-bind:session='session' />
+            <div v-if="!isPlanningViewMonth()">
+                <PlanningWeek :planning='planning' :session='session' />
+            </div>
+            <div v-else>
+                <PlanningMonth :planning='planning' :session='session' />
+            </div>
+            
         </div>
 
     </div>
@@ -35,11 +49,58 @@
 import NavBarOnline from './components/NavBarOnline.vue'
 import NavBarOffline from './components/NavBarOffline.vue'
 import SideBar from './components/SideBar.vue'
-import Planning from './components/Planning.vue'
+import PlanningWeek from './components/PlanningWeek.vue'
+import PlanningMonth from './components/PlanningMonth.vue'
 import Alerts from './components/Alerts.vue'
+
+const planning = [
+  {
+    id: 1,
+    name: "rendez vous médecin",
+    userId: 1,
+    dateEventBegin: "2018-11-05T08h00",
+    dateEventEnd: "2018-11-05T09h00",
+    type: ""
+  },
+  {
+    id: 2,
+    name: "mise en prod",
+    userId: 1,
+    dateEventBegin: "2018-11-05T09h00",
+    dateEventEnd: "2018-11-05T011h00",
+    type: ""
+
+  },
+  {
+    id: 3,
+    name: "réunion fin de projet",
+    userId: 1,
+    dateEventBegin: "2018-11-07T08h00",
+    dateEventEnd: "2018-11-08T10h00",
+    type: ""
+  },
+  {
+    id: 4,
+    name: "montage vidéo",
+    userId: 2,
+    dateEventBegin: "2018-11-05T08h00",
+    dateEventEnd: "2018-11-05T08h00",
+    type: ""
+  },
+  {
+    id: 5,
+    name: "pause café",
+    userId: 2,
+    dateEventBegin: "2018-11-05T08h00",
+    dateEventEnd: "2018-11-05T08h00",
+    type: ""
+  }
+]
+
 
 const users = [
   {
+    id : 1,
     name : "jeandot",
     firstname : "teofilo",
     password : "bloup",
@@ -55,6 +116,7 @@ const users = [
     status : "salarié"
   },
    {
+    id : 2,
     name : "bar",
     firstname : "foo",
     password : "bloup",
@@ -70,6 +132,7 @@ const users = [
     status : "responsable"
   },
    {
+    id : 3,
     name : "michalon",
     firstname : "jack",
     password : "bloup",
@@ -86,13 +149,23 @@ const users = [
   }        
 ]
 
+const roles = [
+  "salarié","drh","responsable"
+]
+
 export default {
   components: {
-    NavBarOnline, NavBarOffline, SideBar, Planning, Alerts
+    NavBarOnline, NavBarOffline, SideBar, PlanningWeek, PlanningMonth, Alerts
   },
+
   name: 'app',
   data () {
     return {
+      planning: planning,
+      selectedDateBegin: "20",
+      selectedDateEnd: "",
+      selectedMonth: "",
+      toggleMonthView : false,
       alert : "",
       users: users,
       session : {
@@ -100,15 +173,20 @@ export default {
       },
     }
   },
+
+  mounted() {
+    if (localStorage.getItem('session')) {
+      try {
+        this.session = JSON.parse(localStorage.getItem('session'));
+      } catch(e) {
+        localStorage.removeItem('session');
+      }
+    }
+  },
+
   methods: {
-    sessionIsActive: function(){
-        if (this.session.isActive){
-          console.log("true")
-          return true
-        }
-        console.log("false")
-        return false        
-    },
+    // Auth
+
     login:function(formEmail, formPassword){
       console.log("login")
       var found = false
@@ -116,8 +194,7 @@ export default {
       while(i < users.length && !found){
           console.log("fE :" + formEmail + " fP : " + formPassword)
           console.log("bE :" + users[i].mail + " bP : " + users[i].password)
-          if(users[i].mail == formEmail && users[i].password == formPassword){
-            
+          if(users[i].mail == formEmail && users[i].password == formPassword){            
             found = true
           }else{
             i++
@@ -128,46 +205,89 @@ export default {
             isActive: true,                
             user :  users[i]
         }
+        const parsed = JSON.stringify(this.session);
+        localStorage.setItem('session', parsed);
       }else{
         alert = "Bad email or password"
+        console.log("false email / pwd")
       }
           
     },
+
     logout:function(){
         this.session = {
             isActive: false
         }
-    }
+        localStorage.removeItem('session');
+        
+    },
+
+    isAuth:function(){
+      if (this.session.isActive){
+        return true
+      }
+      return false        
+    },
+
+    // Permission
+
+    gotPermission:function(){
+
+    },
+
+    // Planning
+
+    createEvent:function(){
+
+    },
+
+    updateEvent:function(){
+
+    },
+
+    deleteEvent:function(){
+
+    },
+
+    // Others
+
+    isPlanningViewMonth:function(){
+      return this.toggleMonthView
+    },
+
+    togglePlanningView:function(){
+        this.toggleMonthView = this.toggleMonthView == true ? false : true
+    },
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-h1,
-h2 {
-  font-weight: normal;
-}
+  h1,
+  h2 {
+    font-weight: normal;
+  }
 
-ul {
-  list-style-type: none;
+  ul {
+    list-style-type: none;
 
-  padding: 0;
-}
+    padding: 0;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
 
-a {
-  color: #42b983;
-}
+  a {
+    color: #42b983;
+  }
 </style>
