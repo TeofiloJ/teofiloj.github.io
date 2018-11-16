@@ -18,7 +18,7 @@
                       <b-btn v-on:click="setSelectedWeek" variant="outline-success">Filtrer</b-btn>
                   </div>
                     <div v-else class="input-group" id="month-input">
-                      <input type='text' id='monthDatePicker' v-model="selectedMonth"/>
+                      <vue-monthly-picker id='monthDatePicker' v-model="selectedMonth"></vue-monthly-picker>
                       <b-btn v-on:click="setSelectedMonth" variant="outline-success">Filtrer</b-btn>
                   </div>
               </div>
@@ -56,31 +56,42 @@
 
 <script>
 
-import { EventBus } from '../main.js';
+import { EventBus } from '../main.js'
+import VueMonthlyPicker from 'vue-monthly-picker'
 
 export default {
-  components: {},
+  components: {
+    VueMonthlyPicker
+  },
   data() {
     return {
-      selectedWeek: "",
-      selectedMonth: "",
-      selectedUser : session.user.id
+      selectedWeek: "2018-11-05",
+      selectedMonth: "2018-11-01T00:00",
+      selectedUser: ""
     }
   },
   methods: {
+    getUserPlanning:function(){
+      if(session.user.role != "responsable"){
+        this.selectedUser = session.user.id
+      }else{
+        this.selectedUser = session.user.id // a changer pour prendre en compte la selection d'un collaborateur
+      }
+    },
     setSelectedWeek:function(){
       
       var calculatedDateBegin = this.$moment(this.selectedWeek).weekday(1).format('YYYY-MM-DDTHH:mm');
       var calculatedDateEnd = this.$moment(this.selectedWeek).weekday(6).format('YYYY-MM-DDTHH:mm'); // .weekday(6) car weekday(5) = vendredi matin à 00h00
-
-      console.log(this.selectedWeek)
-      console.log("lundi: " +  calculatedDateBegin)
+      
+      /*console.log("lundi: " +  calculatedDateBegin)
       console.log("vendredi: " +  calculatedDateEnd)
+      */
+      //this.getUserPlanning()
 
-      EventBus.$emit('setSelectedWeek', calculatedDateBegin, calculatedDateEnd, this.selectedUser);
+      EventBus.$emit('setSelectedWeek', calculatedDateBegin, calculatedDateEnd, 1); //calculer id personne
     },
     setSelectedMonth:function(){
-      EventBus.$emit('setSelectedMonth', this.selectedMonth);
+      EventBus.$emit('setSelectedMonth', this.selectedMonth, 1); //calculer id personne
     },
   },
   props: {
@@ -102,5 +113,7 @@ export default {
   width: 25px;
   height: 25px;
 }
+
+
 </style>
 
