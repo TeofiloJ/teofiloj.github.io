@@ -1,15 +1,15 @@
 <template>
 
-     <div class="col ml-3 border">
+     <div class="col ml-3 ">
             <div class="">
               <div class="row">
-                  <div class="col">Lundi</div>
-                  <div class="col">Mardi</div>
-                  <div class="col">Mercredi</div>
-                  <div class="col">Jeudi</div>
-                  <div class="col">Vendredi</div>
-                  <div class="col">Samedi</div>
-                  <div class="col">Dimanche</div>
+                  <div class="col">L</div>
+                  <div class="col">M</div>
+                  <div class="col">M</div>
+                  <div class="col">J</div>
+                  <div class="col">V</div>
+                  <div class="col">S</div>
+                  <div class="col">D</div>
               </div>
               <!-- First Week -->
               <div class="row mb-2">
@@ -59,7 +59,7 @@
                 </div>
               </div>
 
-              <!-- End Week -->
+              <!-- End Week 1 -->
               <div v-if="this.endBuffer == 6" class="">
                 <div class="row mb-2">
                   <div class="  col" v-for="event in this.planningSorted.slice(28 - this.startBuffer, parseInt(this.$moment(this.endOfMonth).format('D')  - 1))">
@@ -86,9 +86,9 @@
                 
               </div>
 
-              <!-- End Week -->
+              <!-- End Week 2 -->
               <div v-else class="row mb-2">
-                 <div class=" col" v-for="event in this.planningSorted.slice(28 - this.startBuffer, parseInt(this.$moment(this.endOfMonth).format('D') ))">
+                 <div class=" col" v-for="event in this.planningSorted.slice(28 - this.startBuffer, parseInt($moment(this.endOfMonth).format('D') ))">
                   <div class="border task" v-if="event.nbEvents != 0" v-b-popover.hover="'nombre de tâches : ' + event.nbEvents" title="Détail journée">
                     {{event.jour}}
                   </div>
@@ -101,7 +101,17 @@
                 </div>
               </div>
             </div>
+            <!-- Liste events du jour selectionné-->
+            <div class="mt-3">
+              <div class="row border-bottom mb-1 pb-1" v-for="event in this.eventsList">
+                <div :class="['col-xs-2', 'ml-3', 'mr-3', 'pr-3', 'border-right', 'border-'+ event.type]"><b>{{$moment(event.dateEventBegin).format('HH:mm') }}</b><br>{{$moment(event.dateEventEnd).format('HH:mm') }} </div>
+                
+              </div>
+
+            </div>
         </div>
+
+       
 
         
         
@@ -159,7 +169,24 @@ export default {
       beginOfMonth: "",
       endOfMonth :"",
       startBuffer: 0,
-      endBuffer: 0
+      endBuffer: 0,
+      eventsList : [{
+          id: 1,
+          name: "rendez vous médecin",
+          userId: 1,
+          dateEventBegin: "2018-11-05T08:00",
+          dateEventEnd: "2018-11-05T09:00",
+          type: "warning"
+        },
+        {
+          id: 2,
+          name: "mise en prod",
+          userId: 1,
+          dateEventBegin: "2018-11-05T09:00",
+          dateEventEnd: "2018-11-05T11:00",
+          type: "info"
+        }
+      ]
     };
   },
   created() {
@@ -195,6 +222,7 @@ export default {
         if(event.userId == this.selectedUserId){
           if(this.$moment(event.dateEventBegin).format('YYYY-MM') == this.$moment(this.beginOfMonth).format('YYYY-MM')){
             this.planningSorted[this.getDayOfMonth(event.dateEventBegin) - 1].nbEvents ++ 
+            this.planningSorted[this.getDayOfMonth(event.dateEventBegin) - 1].events.push(event) 
             //console.log("render " +event.dateEventBegin + " - " + this.planningSorted[this.getDayOfMonth(event.dateEventBegin)])
           }else{            
             //console.log("event name : " + event.name + " | debut event " + this.$moment(event.dateEventBegin).format('YYYY-MM') + " | debut mois " + this.$moment(this.beginOfMonth).format('YYYY-MM'))
@@ -211,7 +239,8 @@ export default {
         this.planningSorted.push(
           {
             jour: i,
-            nbEvents: 0
+            nbEvents: 0,
+            events : []
           }
         )
       }

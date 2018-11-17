@@ -2,27 +2,24 @@
 
 > A Vue.js project
 
-### Séances du 01-02/11/18
+### Séances du 15-16/11/18
 
-objectifs :
-- Gestion des utilisateurs (connexion, affichage différents en fonction du rôle, etc...)
-
-### Séances du 01-02/11/18
-
-objectifs :
-- Ajouter affichage par semaine
+- Terminer le rendu de l'affichage mensuel et y ajouter les popovers
+- Ajouter le routage du projet
 
 ### Séances du 08-09/11/18
 
-objectifs :
 - Toggle entre affichage mois/semaine
 - Ajouter le routage du projet
 
-### Séances du 15-16/11/18
+### Séances du 01-02/11/18
 
-objectifs :
-- Terminer le rendu de l'affichage mensuel et y ajouter les popovers
-- Ajouter le routage du projet
+- Ajouter affichage par semaine
+
+### Séances du 01-02/11/18
+
+- Gestion des utilisateurs (connexion, affichage différents en fonction du rôle, etc...)
+
 
 ## Build Setup
 
