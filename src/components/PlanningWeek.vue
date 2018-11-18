@@ -1,6 +1,6 @@
 <template>
 
-     <div class="col ml-3 border">
+     <div class="">
         <div class="row">
             <div v-for="data in planningSorted" class="col">
                 <span>{{data.jour}}</span>                  
@@ -41,23 +41,23 @@ export default {
     return {
       planningSorted : {
         lundi:{
-          jour : "Lundi",
+          jour : "L",
           events : []
         },
         mardi:{
-          jour : "Mardi",
+          jour : "M",
           events : []
         },
         mercredi:{
-          jour : "Mercredi",
+          jour : "M",
           events : []
         },
         jeudi:{
-          jour : "Jeudi",
+          jour : "J",
           events : []
         },
         vendredi:{
-          jour : "Vendredi",
+          jour : "V",
           events : []
         }
 
@@ -112,23 +112,23 @@ export default {
     resetPlanningView:function(){
       this.planningSorted = {
         lundi:{
-          jour : "Lundi",
+          jour : "L",
           events : []
         },
         mardi:{
-          jour : "Mardi",
+          jour : "M",
           events : []
         },
         mercredi:{
-          jour : "Mercredi",
+          jour : "M",
           events : []
         },
         jeudi:{
-          jour : "Jeudi",
+          jour : "J",
           events : []
         },
         vendredi:{
-          jour : "Vendredi",
+          jour : "V",
           events : []
         }
 

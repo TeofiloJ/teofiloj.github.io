@@ -1,28 +1,27 @@
 <template>
 
     <!-- isAuth -->
-    <div v-if="$emit('isAuth')">
+    <div id="sidebar">
 
         <span>Bonjour {{session.user.firstname}}</span>
 
         <div class="container">    
-            <div class="row">
 
-                <div>
-                  <img  id="togglePlanning" src="../assets/calendar.png" alt="" v-on:click="$emit('togglePlanningView')">
-                </div>                
+          <div class="row">
+            <img  id="togglePlanning" src="../assets/calendar.png" alt="" v-on:click="$emit('togglePlanningView')">
+          </div>                
 
-                <div class="col-sm-6 form-group">
-                    <div v-if="!toggleMonthView" class="input-group" id="week-input">
-                      <input type='date' id='weekDatePicker' v-model="selectedWeek" />
-                      <b-btn v-on:click="setSelectedWeek" variant="outline-success">Filtrer</b-btn>
-                  </div>
-                    <div v-else class="input-group" id="month-input">
-                      <vue-monthly-picker id='monthDatePicker' v-model="selectedMonth"></vue-monthly-picker>
-                      <b-btn v-on:click="setSelectedMonth" variant="outline-success">Filtrer</b-btn>
-                  </div>
-              </div>
+          <div class="row form-group">
+              <div v-if="!toggleMonthView" class="col  input-group" id="week-input">
+                <input type='date' id='weekDatePicker' v-model="selectedWeek" />
+                <b-btn v-on:click="setSelectedWeek" variant="success">Filtrer</b-btn>
+            </div>
+              <div v-else class="col input-group" id="month-input">
+                <vue-monthly-picker id='monthDatePicker' v-model="selectedMonth"></vue-monthly-picker>
+                <b-btn v-on:click="setSelectedMonth" variant="success">Filtrer</b-btn>
+            </div>
           </div>
+
         </div>
 
 
@@ -37,19 +36,6 @@
                 <h1> ELSE</h1>
         </div>
     </div>
-
-    <!-- !isAuth -->
-    <div v-else>
-        <form>
-          <div class="form-group">
-            <label for="periode_start">Période du plannning</label>
-            <br/>
-            <input type="date" id="periode_start">
-            <input type="date" v-model="test" id="periode_end">
-          </div>
-        </form>
-    </div>
-
 
 
 </template>
@@ -112,7 +98,10 @@ export default {
 #togglePlanning {
   width: 25px;
   height: 25px;
+  
 }
+
+
 
 
 </style>

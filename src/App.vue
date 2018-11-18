@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" id="app">
+  <div id="app">
 
     <router-view/>
 
@@ -27,6 +27,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+
   }
   h1,
   h2 {
@@ -42,5 +43,9 @@ export default {
   }
   a {
     color: #42b983;
+  }
+body{
+    background-image: url('assets/background2.jpg');
+
   }
 </style>

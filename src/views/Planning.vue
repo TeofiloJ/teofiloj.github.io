@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" id="app">
+  <div>
     
     <!-- Navbar -->
     
@@ -10,25 +10,22 @@
         <NavBarOffline v-on:login="login" :session='session'/>
     </div>
 
-    <!-- Alert -->
-
-    <Alerts :alert='alert' />
-    
     <!-- Main Page -->
 
-    <div class="row mt-3" v-if="isAuth()" >
+    <div class="row m-2" v-if="isAuth()" >
        
         <!-- Left Sidebar -->
-        <div style="background-color:light-gray" class="col-md-2 border">
-           <SideBar :session="session" :toggleMonthView="toggleMonthView" v-on:togglePlanningView="togglePlanningView"></SideBar>
+        <div class="col-lg-3">
+           <SideBar class="sidebar" :session="session" :toggleMonthView="toggleMonthView" v-on:togglePlanningView="togglePlanningView"></SideBar>
         </div>
+
         <!-- Center -->
-        <div class="col-md-10">
+        <div class="col-lg-9">
             <div v-if="!isPlanningViewMonth()">
-                <PlanningWeek :planning='planning' :session='session' />
+                <PlanningWeek class="planning"  :planning='planning' :session='session' />
             </div>
             <div v-else>
-                <PlanningMonth :planning='planning' :session='session' />
+                <PlanningMonth class="planning"  :planning='planning' :session='session' />
             </div>
             
         </div>
@@ -236,26 +233,16 @@ export default {
 </script>
 
 <style>
-  #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-  h1,
-  h2 {
-    font-weight: normal;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  a {
-    color: #42b983;
-  }
+
+.planning{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+}
+
+.sidebar{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  
+}
+
 </style>
