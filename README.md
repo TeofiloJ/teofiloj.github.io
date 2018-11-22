@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+### Séances du 22-23/11/18
+
+- Refactoring du routage à la place de l'ancien routage personalisé
+
 ### Séances du 15-16/11/18
 
 - Terminer le rendu de l'affichage mensuel et y ajouter les popovers
@@ -19,7 +23,6 @@
 ### Séances du 01-02/11/18
 
 - Gestion des utilisateurs (connexion, affichage différents en fonction du rôle, etc...)
-
 
 ## Build Setup
 
