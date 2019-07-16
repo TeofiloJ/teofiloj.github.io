@@ -1,15 +1,941 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta charset="utf-8">
-    <title>gta-ynov-vue</title>
-    <link rel="stylesheet" href="/dist/main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-        crossorigin="anonymous">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="/dist/build.js"></script>
-  </body>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Mots Composés - Véronique ROLLAND</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="css/freelancer.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Mots Composés</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#prestations">Prestations</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+          <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#collaborations">Collaborations</a>
+            </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">A propos</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container-fluid ">
+
+      <div class="row">
+
+          <div class="col-12 col-md-6">
+
+              <!-- Masthead Avatar Image -->
+            <img class="" src="img/LOGO_Mots_Composes.jpg" alt="">
+      
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="divider-custom-line"></div>
+            </div>
+      
+            <!-- Masthead Subheading -->
+            <p class="masthead-subheading font-weight-light mb-0">
+                L’assurance qualité de vos projets rédactionnels
+                <br/>
+                Par une experte certifiée Voltaire</p>
+     
+          </div>
+     
+          <div class="col align-self-center">
+            <img class="img-fluid mt-5" src="img/certificat-voltaire.png" alt="">
+          </div>
+
+      </div>
+      
+
+     
+
+    </div>
+  </header>
+
+    <!-- Portfolio Section -->
+    <section class="page-section portfolio" id="prestations">
+        <div class="container">
+    
+          <!-- Portfolio Section Heading -->
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Prestations</h2>
+    
+          <!-- Icon Divider -->
+          <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+          </div>
+    
+          <!-- Portfolio Grid Items -->
+          <div class="row text-center text-uppercase text-secondary">
+    
+            <!-- Portfolio Item 1 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalParticulier">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <i class="fas fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img class="img-fluid" src="img/particulier_small.jpg" alt="">                
+              </div>
+              <p>Particuliers</p>
+            </div>
+    
+            <!-- Portfolio Item 2 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalEntreprise">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <i class="fas fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img class="img-fluid" src="img/entreprise_small.jpg" alt="">                
+              </div>
+              <p>Entreprises</p>
+            </div>
+    
+            <!-- Portfolio Item 3 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalAssociation">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <i class="fas fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img class="img-fluid" src="img/association_small.jpg" alt="">                
+              </div>
+              <p>Associations</p>
+            </div>
+    
+            <!-- Portfolio Item 4 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalCollectivite">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                  <div class="portfolio-item-caption-content text-center text-white">
+                    <i class="fas fa-plus fa-3x"></i>
+                  </div>                </div>
+                <img class="img-fluid" src="img/collectivites_small.jpg" alt="">
+                
+              </div>
+              <p>Collectivités Locales</p>
+            </div>
+    
+          </div>
+          <!-- /.row -->
+
+          <div class="container mt-5 text-center text-secondary">
+
+              <!-- Portfolio Grid Items -->
+              <div class="row d-flex align-items-center justify-content-center">
+        
+                <!-- Portfolio Item 1 -->
+                <div class="col-md-6 col-lg-2">
+                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalBiographie">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                      <div class="portfolio-item-caption-content text-center text-white">
+                        <i class="fas fa-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-book fa-7x"></i> 
+                    </div>
+                    
+                  </div>
+                  <p>Biographie</p>
+                </div>
+        
+                <!-- Portfolio Item 2 -->
+                <div class="col-md-6 col-lg-2">
+                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalCorrection">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                      <div class="portfolio-item-caption-content text-center text-white">
+                        <i class="fas fa-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-spell-check fa-7x"></i>
+                    </div>
+                  </div>
+                  <p>Correction, réécriture</p>
+                </div>
+        
+                <!-- Portfolio Item 3 -->
+                <div class="col-md-6 col-lg-2">
+                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalWeb">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                      <div class="portfolio-item-caption-content text-center text-white">
+                        <i class="fas fa-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-laptop fa-7x"></i>
+                  </div>
+                  </div>
+                  <p>Pages web</p>
+                </div>
+        
+                <!-- Portfolio Item 4 -->
+                <div class="col-md-6 col-lg-2">
+                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#modalBioEnt">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                      <div class="portfolio-item-caption-content text-center text-white">
+                        <i class="fas fa-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-pen-alt fa-7x"></i>
+                  </div>
+                  </div>
+                  <p>Biographie d'entreprise/storyteling</p>
+                </div>
+        
+                <!-- Portfolio Item 5 -->
+                <div class="col-md-6 col-lg-2">
+                  <div class="portfolio-item mx-auto " data-toggle="modal" data-target="#modalJournaux">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                      <div class="portfolio-item-caption-content text-center text-white">
+                        <i class="fas fa-plus fa-3x"></i>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                    <i class="far fa-copy fa-7x  "></i>
+                    </div>
+                  </div>
+                  <p>Journaux interne/externes</p>
+                </div>
+        
+              </div>
+              <!-- /.row -->
+        
+            </div>
+    
+        </div>
+      </section>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="portfolio">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Portfolio</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+    </div>
+  </section>
+
+   <!-- collaborations Section -->
+   <section class="page-section" id="collaborations">
+      <div class="container ">
+  
+        <!-- collaborations Section Heading -->
+        <h2 class="d-none d-md-block page-section-heading text-center text-uppercase text-secondary mb-0">collaborations</h2>
+        <h3 class="d-md-none class  text-center text-uppercase text-secondary mb-0">collaborations</h3>
+  
+        <!-- Icon Divider -->
+        <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="row d-flex align-items-center justify-content-center">
+
+            <div class="col col-md-10 ">
+    
+              <div class="row mt-5  ">
+    
+                  <img class="col-md-4 mb-4" src="./img/collabs/magazine-enjeux-logo.jpg" alt="">
+                  <img class="col-md-4 mb-4" src="./img/collabs/Côtes_dArmor_logo_2014.png" alt="">
+                  <img class="col-md-4 mb-4" src="./img/collabs/logo-magazine-nouvel-ouest.png" alt="">
+    
+  
+    
+                  <img class="col-md-4 mb-4 " src="./img/collabs/cci-cotes-darmor-22.jpg" alt="">
+                  <img class="col-md-4 mb-4 " src="./img/collabs/logo-cci-bretagne.jpg" alt="">
+                  <img class="col-md-4 mb-4 " src="./img/collabs/saint-brieuc-armor-agglomeration.png" alt="">
+    
+    
+            </div>
+    
+            
+    
+          </div>
+
+          <div class="col col-md-2 d-none d-md-block   mb-5">
+    
+              <div id="carousel" data-interval="1500" class="carousel slide" style="width: 300; height:300;" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="./img/collabs/Lamballe_Communauté_logo.png" class="d-block w-100" alt="...">
+                    </div>
+                     <div class="carousel-item">
+                        <img src="./img/collabs/le-petit-futé-logo.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/logo-cibles-strategies-2-1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/logo-cyan-100.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/logo-ville-de-pordic.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/magazine-pays-de-bretagne-logo.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/sdis-logo.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/ville-de-ploufragan-logo.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/collabs/ville_lamballe_logo.png" class="d-block w-100" alt="...">
+                    </div>
+                      
+                  </div>
+                </div>
+    
+          </div>
+
+  
+      </div>
+    </section>
+
+
+
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">A propos</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-lg-4 ml-auto d-flex align-items-center  align-self-center flex-column">
+
+            <img style="max-height: 250px" class="rounded-circle masthead-avatar mb-5" src="img/veronique-rolland-photo.jpg" alt="Photo de Véronique ROLLAND">
+            <!-- Masthead Heading -->
+            <h5 class="masthead-heading text-uppercase mb-0">Véronique ROLLAND</h5>
+
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="divider-custom-line"></div>
+            </div>
+
+            <!-- Masthead Subheading -->
+            <p class="masthead-subheading font-weight-light mb-5">Rédactrice - Correctrice - Biographe</p>
+        </div>
+        <div class="col-lg-8 ml-auto">
+          <p class="lead text-justify">Journaliste expérimentée, j’ai développé mes compétences dans de nombreux secteurs : presse généraliste, presse économique, presse d’entreprise ou institutionnelle, agences de communication….
+
+            <br/><br/> Un parcours qui m’a permis de maîtriser une large palette de techniques rédactionnelles dans différents registres. Expliquer, raconter, convaincre…
+            
+            <br/><br/> J’accompagne particuliers et professionnels en fonction de leurs objectifs de communication écrite. Mon fil conducteur : aider chacun à trouver les mots justes, pour une communication efficace.
+          
+          <br/>
+          <br/>
+          <span class="text-uppercase"><strong>Économie Sociale et Solidaire</strong></span><br/>
+          Créée dans le cadre de la Coopérative d’Activité et d’Emploi Avant-Premières, Mots Composés se revendique de l’Économie Sociale et Solidaire (ESS), dont l’objectif est de :
+          <br/>
+          « concilier utilité sociale, solidarité, performance économique et gouvernance démocratique ».
+          <br/>
+          Mon engagement s’inscrit notamment dans le partage de deux valeurs majeures : l’éthique et la coopération.
+          
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="page-section" id="contact">
+    <div class="container">
+
+      <!-- Contact Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Me contacter</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Contact Section Form -->
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+          <form name="sentMessage" id="contactForm" novalidate="novalidate">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Nom</label>
+                <input class="form-control" id="name" type="text" placeholder="Nom" required="required" data-validation-required-message="Please enter your name.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Mail</label>
+                <input class="form-control" id="email" type="email" placeholder="Mail" required="required" data-validation-required-message="Please enter your email address.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Téléphone</label>
+                <input class="form-control" id="phone" type="tel" placeholder="Téléphone" required="required" data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Message</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Localisation</h4>
+          <p class="lead mb-0">22190 – Plérin</p>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="col mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Réseaux</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/MotsComposes/">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/MotsComposes">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/v%C3%A9ronique-rolland-1664bb151/">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+        </div>
+
+        <!-- Footer About Text
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">A propos de Mots Composés</h4>
+          <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
+            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+        </div> -->
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Mots Composés 2019</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Portfolio Modal 1 -->
+  <div class="portfolio-modal modal fade" id="modalParticulier" tabindex="-1" role="dialog" aria-labelledby="modalParticulierLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Particuliers</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt=""> -->
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">
+                  Écrire pour être lu répond à un savoir-faire et des compétences qui ne s’improvisent pas. 
+                  <br/>
+                  Que votre projet rédactionnel soit modeste ou d’envergure, Mots Composés vous guide afin de lui donner une dimension professionnelle.
+                  <br/>
+                  <br/>
+                  Projet en réflexion, texte en cours d’écriture, simple relecture ou prise en charge complète du rédactionnel, nous pouvons intervenir à chaque étape de la réalisation.
+                </p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 2 -->
+  <div class="portfolio-modal modal fade" id="modalEntreprise" tabindex="-1" role="dialog" aria-labelledby="modalEntrepriseLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Entreprises</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt=""> -->
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">
+                    Supports papiers ou projets web, les entreprises ont besoin de contenus rédactionnels pour renforcer leur visibilité et démontrer leur expertise.
+                    <br/><br/>
+                    Un rédactionnel mûrement construit et réfléchi est un facteur de différenciation précieux, non seulement vis-à-vis de la concurrence, mais également pour emporter le choix du client.
+                    <br/><br/>
+                    Je réponds à votre exigence de qualité dans le cadre de votre stratégie d’entreprise.
+                </p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 3 -->
+  <div class="portfolio-modal modal fade" id="modalAssociation" tabindex="-1" role="dialog" aria-labelledby="modalAssociationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Associations</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt=""> -->
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">
+                    La communication écrite est un réel atout pour les associations qui souhaitent se rendre visibles auprès de leurs partenaires et de leurs bénéficiaires, et optimiser les relations avec leurs membres.
+                    <br/><br/>
+                    Les enjeux d’une bonne visibilité ? La préservation des financements, le relais de vos actions auprès du public, le maintien de la dynamique chez les bénévoles et adhérents.
+                    <br/><br/>
+                    je réponds à votre exigence de qualité dans le cadre de votre stratégie de communication.
+                </p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 4 -->
+  <div class="portfolio-modal modal fade" id="modalCollectivite" tabindex="-1" role="dialog" aria-labelledby="modalCollectiviteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Collectivités</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/game.png" alt=""> -->
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">
+                    Pour les collectivités locales, communiquer est un impératif et un défi quotidiens.
+                    <br/><br/>
+                    Au moment où les canaux de communication n’ont jamais été aussi nombreux, la collectivité locale joue un rôle majeur dans le droit à l’information. C’est non seulement un service public dû aux citoyens, mais également une valeur ajoutée pour un territoire.
+                    <br/><br/>
+                    Ensemble, nous pouvons renforcer l’identité et l’attractivité de votre territoire, mettre en œuvre une démarche pédagogique pour des publiques spécifiques, sensibiliser la population à des thématiques particulières.
+                    <br/><br/>
+                    Je réponds à votre exigence de qualité dans le cadre de votre stratégie de communication.
+                </p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal modal fade" id="modalBiographie" tabindex="-1" role="dialog" aria-labelledby="modalBiographieLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Biographie</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt=""> -->
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">
+                    Quel que soit l’accompagnement sollicité, ce service repose sur deux piliers fondamentaux : la fidélité aux propos, le respect de la personnalité de la narratrice ou du narrateur.
+                </p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal modal fade" id="modalCorrection" tabindex="-1" role="dialog" aria-labelledby="modalCorrectionLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Corrections, réécriture</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt=""> -->
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Donner de la profondeur à vos textes, renforcer leur lisibilité et leur clarté, demeurer au plus près de votre pensée… 
+                      <br/>Telles sont les bases sur lesquelles nous nous appuyons pour conduire vos textes vers l’excellence.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Fermer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal modal fade" id="modalWeb" tabindex="-1" role="dialog" aria-labelledby="modalWebLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Pages web</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt=""> -->
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Selon Médiamétrie, deux Français sur trois se connectent chaque jour à internet.
+                      <br/><br/>
+                      Site vitrine ou marchand, blog, page Facebook, newsletter… La présence sur la toile peu rapidement devenir contre-productive : une faible qualité rédactionnelle fait naître l’idée d’un manque de professionnalisme préjudiciable.
+                    </p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Fermer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal modal fade" id="modalBioEnt" tabindex="-1" role="dialog" aria-labelledby="modalBioEntLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h4 class="portfolio-modal-title text-secondary text-uppercase mb-0">Biographies d’entreprises et storytelling </h4>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt=""> -->
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Relater le parcours d’une entreprise, d’une institution ou de son dirigeant, valoriser son savoir-faire et ses valeurs… La biographie d’entreprise permet de diffuser un message original, complet et humain de l’entreprise ; elle lui permet d’exprimer sa véritable identité.
+                        <br/> <br/>
+                      Le storytelling est également un outil marketing efficace, promoteur des défis relevés par l’entreprise et marqueur de ses atouts.
+                    </p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Fermer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal modal fade" id="modalJournaux" tabindex="-1" role="dialog" aria-labelledby="modalJournauxLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h4 class="portfolio-modal-title text-secondary text-uppercase mb-0">Journaux internes ou externes</h4>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <!-- <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt=""> -->
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">
+                      Sur support papier ou format électronique, le journal est un vecteur majeur de la communication pour les collectivités, entreprises et autres organisations. Sa mise en œuvre répond à plusieurs enjeux.
+
+
+                  </p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Fermer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
 </html>
